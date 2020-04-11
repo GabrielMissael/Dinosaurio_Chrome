@@ -6,4 +6,4 @@ Todos conocemos el clásico juego del T-Rex que evita obstáculos mientras corre
 
 El circuito utilizado es bastante sencillo de montar con algunos jumpers:
 
-<img src="circuito.JPG" alt="circuito" style="width:200px;"/>
+<img src="circuito.JPG" alt="circuito" style="width:100px;"/>
