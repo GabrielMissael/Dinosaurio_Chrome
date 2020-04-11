@@ -1,22 +1,22 @@
-//Incluimos esta libreria para poder manejar el servomotor
+//Incluimos esta librería para poder manejar el servomotor
 #include<Servo.h>
 
 //Declaramos una variable tipo Servo
 Servo motor;
 
 /*
- * LDR --> para guardar el valor leido de la fotoresistencia en cada loop
- * background --> se guarda el valor del fondo del juego (no los obstaculos)
- * Ini, fin --> Angulo inicial y final del servo para hacer click (depende de como lo coloques)
- * tiempo_obstaculo --> Delay entre lectura de obstaculo y presionar el boton
- * umbral --> sensibilidad del circuto para presionar boton
+ * LDR --> para guardar el valor leído de la fotorresistencia en cada loop
+ * background --> se guarda el valor del fondo del juego (no los obstáculos)
+ * Ini, fin --> Angulo inicial y final del servo para hacer click (depende de cómo lo coloques)
+ * tiempo_obstaculo --> Delay entre lectura de obstáculo y presionar el botón
+ * umbral --> sensibilidad del circuito para presionar botón
 */
 
 double background, LDR, diferencia, ini=30, fin=60, tiempo_obstaculo, umbral = 60;
 
 
 void get_background(){
-  // DESCRIPCION: Esta funcion obtiene el valor leido de la LDR para el fono del juego
+  // DESCRIPCION: Esta función obtiene el valor leído de la LDR para el fono del juego
   
   background = 0;
 
@@ -30,7 +30,7 @@ void get_background(){
 }
 
 void presiona_boton(){
-  //DESCRIPCION: Esta funcion hace presionar el servo
+  //DESCRIPCION: Esta función hace presionar el servo
   
   // OJO: El valor de tiempo_obstaculo depende de que tan alejado esta tu LDR del T-rex en la pantalla
   tiempo_obstaculo = 40;
@@ -46,18 +46,18 @@ void presiona_boton(){
   delay(100); 
 }
 
-// Configuracion inicial
+// Configuración inicial
 void setup() {
-  // Ponemos la comunicacion serial a 9600 baudios
+  // Ponemos la comunicación serial a 9600 baudios
   Serial.begin(9600);
 
-  // El pin A0 (analogico) es de lectura de la LDR
+  // El pin A0 (analógico) es de lectura de la LDR
   pinMode(A0, INPUT);
 
-  // La comunicacion con el servo es en el puerto 6 (digital)
+  // La comunicación con el servo es en el puerto 6 (digital)
   motor.attach(6);
 
-  //Colocamos al servo en la posicion inicial
+  //Colocamos al servo en la posición inicial
   motor.write(ini);
 
   //Obtenemos valor del background
@@ -69,11 +69,11 @@ void setup() {
 }
 
 void loop() {
-  // Leemos valor de la fotoresistencia
+  // Leemos valor de la fotorresistencia
   LDR = analogRead(A0);
   Serial.println(LDR);
 
-  // La diferencia entre el background original y el valor leido
+  // La diferencia entre el background original y el valor leído
   diferencia = background-LDR;
 
   // Si la diferencia es mayor al umbral de sensibilidad, el T-rex salta :)
@@ -82,3 +82,4 @@ void loop() {
   }
   
 }
+
